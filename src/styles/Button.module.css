@@ -1,0 +1,60 @@
+.button {
+  cursor: pointer;
+  border: solid 3px #161616;
+  border-top: none;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0px 2px 6px #00000062, 0px 6px 25px -8px #000000a6;
+  transition: all 0.3s ease;
+  width: 90%;  /* Make button fit the sidebar */
+  max-width: 180px; /* Prevent oversized buttons */
+  margin: 5px;
+}
+
+.inner {
+  padding: 8px 20px; /* Reduced padding */
+  font-size: 1rem; /* Smaller text */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Less space between text and SVG */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-bottom: solid 2px #374e72;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #5771a5, #000);
+  color: #fff;
+  text-shadow: 1px 1px #000, 0 0 5px #fff;
+}
+
+.svgs {
+  position: relative;
+  margin-top: 4px; /* Adjusted margin */
+  z-index: 10;
+  width: 18px; /* Reduce overall size */
+  height: 18px;
+}
+
+.svgs > * {
+  width: 18px; /* Reduce individual SVG size */
+  height: 18px;
+  filter: drop-shadow(0 0 3px #fff) drop-shadow(1px 1px 0px #000);
+}
+
+.svgs .svg-s {
+  position: absolute;
+  font-size: 0.5rem; /* Make small */
+  left: 8px; /* Adjust position */
+  top: -2px;
+}
+
+.button:active {
+  box-shadow: none;
+}
+
+/* ADD GAP BETWEEN BUTTONS */
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust spacing between buttons */
+  align-items: center; /* Center buttons */
+}

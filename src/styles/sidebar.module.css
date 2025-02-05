@@ -1,0 +1,74 @@
+/* sidebar.module.css */
+.sidebar {
+    position: fixed;
+    left: -250px; /* Initially hidden */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-image: url('/robotic.jpg'); /* Ensure this is the correct path */
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    background-repeat: no-repeat;
+    color: white;
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebarSymbol {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .closeIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .sidebar ul {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column */
+    gap: 15px; /* Space between buttons */
+    padding: 0;
+    margin-top: 50px;
+    width: 100%;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  /* Sidebar symbol (gear/close icon) */
+  .sidebarSymbol {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's on top */
+  }
+  
+  /* Main content shift */
+  .main-content {
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .main-content.shift {
+    margin-left: 250px; /* Should match sidebar width */
+  }
+  
