@@ -1,4 +1,4 @@
-This i a repo for the DC Website.
+This is a repo for the DC Website.
 
 ## Getting Started
 
