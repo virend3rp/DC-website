@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import Styles from "../styles/sidebar.module.css";
 import SideButton from "./SideButton"; // Import reusable button
 
-// Define the expected props
 interface SidebarProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,7 +21,7 @@ const SidebarSymbol: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
       {/* Sidebar symbol with either gear or close icon */}
       <div onClick={toggleSidebar} className={Styles.sidebarSymbol}>
         <img
-          src={isOpen ? "/icons8-close.svg" : "/gear-svgrepo-com.svg"}
+          src={isOpen ? "/icons8-close.svg" : "/gear.png"}
           alt={isOpen ? "close icon" : "gear icon"}
           style={{ width: "50px", height: "50px" }}
         />
@@ -31,16 +30,16 @@ const SidebarSymbol: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
       {/* Sidebar content */}
       <div className={`${Styles.sidebar} ${isOpen ? Styles.open : ""}`}>
         <div className={Styles.buttonContainer}>
-          <SideButton onClick={() => router.push("#about")}>About</SideButton>
-          <SideButton onClick={() => router.push("#BIRD-LABS")}>B.I.R.D</SideButton>
-          <SideButton onClick={() => router.push("#Research-Interests")}>Research Interests</SideButton>
-          <SideButton onClick={() => router.push("#Experience")}>Experience</SideButton>
-          <SideButton onClick={() => router.push("#Education")}>Education</SideButton>
-          <SideButton onClick={() => router.push("#Awards")}>Awards</SideButton>
-          <SideButton onClick={() => router.push("#Skills")}>Skills</SideButton>
-          <SideButton onClick={() => router.push("#Publications")}>Publications</SideButton>
-          <SideButton onClick={() => router.push("#Designed-Robots")}>Design CV</SideButton>
-          <SideButton onClick={() => router.push("#Contact")}>Contact</SideButton>
+          <SideButton onClick={() => router.push("/")}>About</SideButton>
+          <SideButton onClick={() => router.push("/BIRD-LABS")}>B.I.R.D</SideButton>
+          <SideButton onClick={() => router.push("/Research-Interests")}>Research Interests</SideButton>  {/* ✅ FIXED ROUTE */}
+          <SideButton onClick={() => router.push("/Experience")}>Experience</SideButton>
+          <SideButton onClick={() => router.push("/Education")}>Education</SideButton>
+          <SideButton onClick={() => router.push("/Awards")}>Awards</SideButton>
+          <SideButton onClick={() => router.push("/Skills")}>Skills</SideButton>
+          <SideButton onClick={() => router.push("/Publications")}>Publications</SideButton>
+          <SideButton onClick={() => router.push("/Design-CV")}>Design CV</SideButton>
+          <SideButton onClick={() => router.push("/Contact")}>Contact</SideButton>
         </div>
       </div>
     </div>

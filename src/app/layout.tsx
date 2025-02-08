@@ -14,13 +14,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="flex min-h-screen transition-transform duration-300">
+      <body className="bg-bannerImg bg-no-repeat bg-cover bg-center min-h-screen flex transition-transform duration-300">
         {/* Sidebar */}
         <SidebarSymbol isOpen={isOpen} setIsOpen={setIsOpen} />
 
-        {/* Shift main content when sidebar opens */}
+        {/* Main content container */}
         <main
-          className={`flex-grow container mx-auto transition-transform duration-300 ${
+          className={`flex-grow w-full transition-transform duration-300 ${
             isOpen ? "translate-x-56" : ""
           }`}
         >
