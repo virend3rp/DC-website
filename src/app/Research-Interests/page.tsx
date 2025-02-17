@@ -21,27 +21,31 @@ const researchInterests = [
 
 export default function ResearchInterests() {
   return (
-    <section className="py-12 px-6 bg-gray-100">
-      {/* Research Interests Heading */}
-      <div className="text-center mb-12">
-        <h2 className="text-5xl font-bold text-gray-900 relative inline-block">
-          Research Interests
-          <span className="block h-1 w-24 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mt-2 rounded-full"></span>
-        </h2>
-      </div>
+    <section className="min-h-screen py-16 px-8 bg-[#0a0a0a] w-full flex flex-col items-center text-white">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-5xl font-extrabold text-center mb-12 relative"
+      >
+        Research Interests
+        <span className="block h-1 w-24 bg-gradient-to-r from-blue-400 to-green-400 mx-auto mt-2 rounded-full"></span>
+      </motion.h2>
 
-      {/* Cards Container */}
-      <div className="flex flex-wrap justify-center gap-6">
+      {/* Grid Layout for Research Interests */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
         {researchInterests.map((interest, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
-            className="bg-white shadow-lg rounded-xl p-6 w-full sm:w-1/2 lg:w-1/3 transform hover:scale-105 transition duration-300"
+            className="relative p-6 rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl backdrop-blur-md transition transform hover:scale-105 hover:shadow-2xl hover:border-blue-400"
           >
-            <h3 className="text-2xl font-semibold text-gray-900">{interest.title}</h3>
-            <p className="mt-3 text-gray-700">{interest.description}</p>
+            <h3 className="text-2xl font-semibold text-white mb-2">{interest.title}</h3>
+            <p className="text-sm text-gray-300 leading-relaxed">{interest.description}</p>
+            <div className="absolute -top-3 -left-3 bg-blue-500 w-6 h-6 rounded-full"></div>
+            <div className="absolute -bottom-3 -right-3 bg-green-500 w-6 h-6 rounded-full"></div>
           </motion.div>
         ))}
       </div>

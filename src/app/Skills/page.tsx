@@ -3,8 +3,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Skills = () => {
-  const skillsData = [
+// Define types for skills and training data
+interface Skill {
+  category: string;
+  tools: string;
+}
+
+interface Training {
+  title: string;
+  description: string;
+}
+
+// Star Badge component with hover animations
+const StarBadge: React.FC<{ title: string; description: string }> = ({ title, description }) => (
+  <motion.div
+    className="flex flex-col items-center space-y-2 transform transition-all duration-300 ease-in-out"
+    whileHover={{ scale: 1.1, boxShadow: '0 4px 15px rgba(255, 255, 255, 0.3)' }}
+    whileTap={{ scale: 0.98 }}
+  >
+    <div className="w-20 h-20 flex items-center justify-center bg-yellow-500 rounded-full shadow-xl relative hover:shadow-2xl transition-shadow duration-300">
+      <span className="absolute text-4xl font-bold text-white">{`★`}</span>
+    </div>
+    <div className="text-center text-sm font-semibold text-white hover:text-yellow-400 transition-colors duration-300">
+      <h4>{title}</h4>
+      <p className="text-gray-300">{description}</p>
+    </div>
+  </motion.div>
+);
+
+const Skills: React.FC = () => {
+  const skillsData: Skill[] = [
     {
       category: 'Mechanical Design Tools',
       tools: 'Fusion360, Inventor, SolidWorks, Abaqus',
@@ -35,7 +63,7 @@ const Skills = () => {
     },
   ];
 
-  const trainingData = [
+  const trainingData: Training[] = [
     {
       title: 'KUKA Robot Programming',
       description: 'Basic and advanced programming of KUKA Robot at the Indian Institute of Technology Delhi, India (2012).',
@@ -55,46 +83,37 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      <motion.h1 
-        className="text-4xl font-bold text-gray-800 mb-6"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Skills & Training Programs
-      </motion.h1>
-      
-      <div className="w-full max-w-4xl space-y-6">
-        <motion.div 
-          className="bg-white shadow-md rounded-xl p-6 border-l-4 border-blue-500"
+    <div className="min-h-screen bg-black flex flex-col items-center p-6">
+      <div className="w-full max-w-4xl space-y-8">
+        {/* Skills Section */}
+        <motion.h2
+          className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 text-center"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Skills</h2>
-          <ul className="list-disc pl-6 text-gray-700">
-            {skillsData.map((skill, index) => (
-              <li key={index}><span className="font-bold">{skill.category}:</span> {skill.tools}</li>
-            ))}
-          </ul>
-        </motion.div>
+          🚀 Skills
+        </motion.h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8 justify-center">
+          {skillsData.map((skill, index) => (
+            <StarBadge key={index} title={skill.category} description={skill.tools} />
+          ))}
+        </div>
 
-        <motion.div 
-          className="bg-white shadow-md rounded-xl p-6 border-l-4 border-green-500"
+        {/* Training Programs Section */}
+        <motion.h2
+          className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-600 text-center"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Training Programs</h2>
-          <ul className="list-disc pl-6 text-gray-700">
-            {trainingData.map((training, index) => (
-              <li key={index} className="mb-2">
-                <span className="font-bold">{training.title}:</span> {training.description}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+          🎓 Training Programs
+        </motion.h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center">
+          {trainingData.map((training, index) => (
+            <StarBadge key={index} title={training.title} description={training.description} />
+          ))}
+        </div>
       </div>
     </div>
   );
