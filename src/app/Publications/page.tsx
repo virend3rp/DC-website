@@ -1,18 +1,19 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Define the publications data
 const publications = [
   {
     title: "Patents",
     items: [
-      "Bhivraj Suthar “Reconfigurable water jet fire fighting drone,” Indian Patent, Application number: 202311003108",
-      "Bhivraj Suthar, Mohammad Zubair and Sachin Kansal, “5-DOF flexure mechanism base to suppress noise in a rotary sensor for a robotic system”, Application number: 362283-001",
-      "Bhivraj Suthar, Balkishan Suthar and Ravi Ranjan “Self-Adjustable Chasses of Quad Rotor Unmanned Arial Vehicle,” Application Number: 408/DEL/2015",
-      "Bhivraj Suthar, Nidhi Sindhu, “Design of four finger hand”, Application no- 409/DEL/2015",
-      "Ravi Ranjan, Bhivraj Suthar, Venkat Chintala, “A system for NOx (Nitrogen Oxides) emission after treatment in automobiles,” Application no- 332/DEL/2015",
-      "Ravi Ranjan, Bhivraj Suthar, Venkat Chintala, “Multi-hole auto swirl type fuel Injector,” Application number- 333/DEL/2015",
+      "Bhivraj Suthar \“Reconfigurable water jet fire fighting drone,\” Indian Patent, Application number: 202311003108",
+      "Bhivraj Suthar, Mohammad Zubair and Sachin Kansal, \“5-DOF flexure mechanism base to suppress noise in a rotary sensor for a robotic system\”, Application number: 362283-001",
+      "Bhivraj Suthar, Balkishan Suthar and Ravi Ranjan \“Self-Adjustable Chasses of Quad Rotor Unmanned Arial Vehicle,\” Application Number: 408/DEL/2015",
+      "Bhivraj Suthar, Nidhi Sindhu, \“Design of four finger hand\”, Application no- 409/DEL/2015",
+      "Ravi Ranjan, Bhivraj Suthar, Venkat Chintala, \“A system for NOx (Nitrogen Oxides) emission after treatment in automobiles,\” Application no- 332/DEL/2015",
+      "Ravi Ranjan, Bhivraj Suthar, Venkat Chintala, \“Multi-hole auto swirl type fuel Injector,\” Application number- 333/DEL/2015",
     ],
   },
   {
@@ -39,7 +40,7 @@ const publications = [
 // Publications component
 const Publications: React.FC = () => {
   return (
-    <section className="bg-black py-10 min-h-screen">
+    <section className="bg-black py-10 min-h-screen relative">
       <motion.div
         className="container mx-auto p-9 space-y-0"
         initial={{ opacity: 0 }}
@@ -59,11 +60,18 @@ const Publications: React.FC = () => {
           {publications.map((publication, index) => (
             <motion.div
               key={index}
-              className="bg-cover bg-center bg-no-repeat p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-              style={{ backgroundImage: "url('/manual-bg.jpg')" }} // Ensure this image exists in your public folder
+              className="relative bg-cover bg-center bg-no-repeat p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              style={{ backgroundImage: "url('/manual-bg.jpg')" }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
+              <Image 
+                src="/royal-stamp.png" 
+                alt="Nail" 
+                width={40} 
+                height={40} 
+                className="absolute top-0 left-0 transform -translate-x-3 -translate-y-3"
+              />
               <motion.h2
                 className="text-2xl font-semibold text-yellow-300 mb-4 text-center shadow-md"
                 initial={{ opacity: 0 }}
@@ -72,7 +80,6 @@ const Publications: React.FC = () => {
               >
                 {publication.title}
               </motion.h2>
-
               <ul className="space-y-4 text-sm text-gray-900">
                 {publication.items.map((item, itemIndex) => (
                   <motion.li

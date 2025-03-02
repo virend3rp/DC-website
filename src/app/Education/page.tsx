@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const educationData = [
   {
@@ -8,18 +9,21 @@ const educationData = [
     institution: "KOREATECH & KAIST, South Korea",
     duration: "February 2016 – August 2020",
     dissertation: "Development of Twisted String Actuator-based Assistive Upper Limb Exosuit",
+    logo: "/koreatech-kaist.png", // Add your image path
   },
   {
     degree: "Master of Technology (M.Tech.) in Robotics, Center for Energy",
     institution: "Indian Institute of Technology Delhi, India",
     duration: "August 2012 – May 2015",
     dissertation: "Design and Simulation of Solar Panel Cleaning Robot Based on Inchworm Mechanism",
+    logo: "/iit-delhi.png", // Add your image path
   },
   {
     degree: "Bachelor of Technology (B.Tech.) in Electrical Engineering",
     institution: "College of Technology and Engineering, Udaipur, Rajasthan, India",
     duration: "July 2006 – June 2010",
     dissertation: "Major: Electrical Engineering",
+    logo: "/cte-udaipur.png", // Add your image path
   },
 ];
 
@@ -34,8 +38,11 @@ export default function Education() {
 
       {/* Timeline Container */}
       <div className="relative w-full max-w-5xl flex flex-col items-center">
-        {/* Curved Path */}
-        <div className="absolute left-1/2 top-0 w-1 bg-gray-600 transform -translate-x-1/2 h-full rounded-full"></div>
+        {/* Curved Path (Dynamically Adjust Height) */}
+        <div
+          className="absolute left-1/2 top-0 w-1 bg-gray-600 transform -translate-x-1/2 rounded-full"
+          style={{ height: `${educationData.length * 200}px` }} // Dynamic height fix
+        ></div>
 
         {/* Education Cards */}
         <div className="space-y-12 w-full">
@@ -50,6 +57,14 @@ export default function Education() {
                 bg-white text-black hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-300 
                 ${index % 2 === 0 ? "ml-auto" : "mr-auto"}`}
             >
+              {/* Institution Logo */}
+              {edu.logo && (
+                <div className="w-16 h-16 mb-4">
+                  <Image src={edu.logo} alt={edu.institution} width={64} height={64} className="rounded-full" />
+                </div>
+              )}
+
+              {/* Education Details */}
               <h3 className="text-2xl font-semibold">{edu.degree}</h3>
               <p className="text-lg text-gray-600 font-medium mt-1">{edu.duration}</p>
               <p className="mt-3 font-medium">{edu.institution}</p>

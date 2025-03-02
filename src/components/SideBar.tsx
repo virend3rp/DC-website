@@ -30,7 +30,7 @@ const SidebarSymbol: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
       {/* Sidebar content */}
       <div className={`${Styles.sidebar} ${isOpen ? Styles.open : ""}`}>
         <div className={Styles.buttonContainer}>
-          <SideButton onClick={() => router.push("/")}>About</SideButton>
+          <SideButton onClick={() => router.push("/about")}>About</SideButton>
           <SideButton onClick={() => router.push("/BIRD-LABS")}>B.I.R.D</SideButton>
           <SideButton onClick={() => router.push("/Research-Interests")}>Research Interests</SideButton>  {/* ✅ FIXED ROUTE */}
           <SideButton onClick={() => router.push("/Experience")}>Experience</SideButton>

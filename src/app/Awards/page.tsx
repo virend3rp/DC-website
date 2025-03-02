@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const awardsData = [
   {
@@ -37,34 +37,57 @@ const awardsData = [
 ];
 
 export default function Awards() {
-  const [index, setIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % awardsData.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const toggleAward = (index: number) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white p-6 relative overflow-hidden">
-      <h1 className="text-4xl font-bold mb-6">✨ Awards ✨</h1>
-      <div className="relative w-full max-w-3xl h-full flex flex-col items-center justify-center">
-        {awardsData.map((award, i) => {
-          const isActive = i === index;
+    <div
+      className="min-h-screen flex flex-col items-center justify-center text-white p-6 relative overflow-hidden"
+      style={{
+        backgroundImage: "url('/motherboard.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Blurry Overlay */}
+      <div className="absolute inset-0 bg-green-800/50 backdrop-blur-lg"></div>
 
-          return (
-            <motion.div
-              key={i}
-              className={`w-80 p-6 bg-gray-900 rounded-lg shadow-lg text-center mb-6 transition-all duration-500 ease-in-out ${isActive ? "scale-110 shadow-2xl border-4 border-yellow-400" : "scale-90 opacity-70"}`}
-              animate={{ opacity: isActive ? 1 : 0.7 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-xl font-semibold text-yellow-400 mt-6">{award.title}</h2>
-              <p className="text-gray-300 mt-4">{award.description}</p>
-            </motion.div>
-          );
-        })}
+      {/* Main Heading */}
+      <h1 className="text-5xl font-extrabold text-yellow-400 drop-shadow-xl mb-6 relative z-10">
+        ✨ Awards ✨
+      </h1>
+
+      {/* Award Cards Container */}
+      <div className="w-full max-w-xl grid grid-cols-1 gap-6 relative z-10">
+        {awardsData.map((award, i) => (
+          <motion.div
+            key={i}
+            className="py-8 px-6 min-h-[200px] bg-green-900 rounded-lg drop-shadow-lg text-center cursor-pointer border-4 border-yellow-500 hover:border-yellow-600 relative overflow-hidden"
+            onClick={() => toggleAward(i)}
+            layout
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="absolute top-0 left-0 w-full h-2 bg-yellow-500"></div>
+            <div className="absolute bottom-0 left-0 w-full h-4 bg-yellow-500"></div>
+            <h2 className="text-2xl font-bold text-yellow-400">{award.title}</h2>
+            <AnimatePresence>
+              {openIndex === i && (
+                <motion.p
+                  className="text-gray-100 mt-4 leading-relaxed"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {award.description}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
