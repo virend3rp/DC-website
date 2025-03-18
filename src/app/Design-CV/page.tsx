@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -26,66 +26,54 @@ const projects = [
 
 const DesignCV: React.FC = () => {
   return (
-    <section className='bg-blue'>
-    <motion.div
-      className="container mx-auto px-6 py-12 space-y-16 bg-gray-50" // Updated background color
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      {/* CV Title */}
-      <motion.h1
-        className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center mb-12 shadow-md"
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, type: 'spring', stiffness: 100 }}
-      >
-        Bhivraj Suthar
-        <br />
-        Design Portfolio
-      </motion.h1>
-
-      {/* Projects Section */}
-      <motion.section
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+    <section className="bg-blue-900 min-h-screen py-16">
+      <motion.div
+        className="container mx-auto px-6 py-12 space-y-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+        {/* Portfolio Title */}
+          <motion.h1
+            className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-center mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, type: 'spring', stiffness: 100 }}
           >
-            <div className="relative">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              {/* Overlay Effect on Image */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30 rounded-lg"></div>
-            </div>
-            <h2 className="text-xl font-serif font-semibold text-gray-800 mb-3">{project.title}</h2>
-            <p className="text-sm text-gray-700 leading-relaxed text-justify">
-              {project.description}
-            </p>
-          </motion.div>
-        ))}
-      </motion.section>
+            DESIGN PORTFOLIO
+        </motion.h1>
 
-      {/* Contact Section (Optional, Can be customized) */}
-      <motion.section
-        className="mt-12 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        {/* Optional content like a "Contact Me" button or information */}
-      </motion.section>
-    </motion.div>
+        {/* Projects Section */}
+        <motion.section
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="bg-black p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="relative">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                {/* Overlay Effect on Image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30 rounded-lg"></div>
+              </div>
+              <h2 className="text-xl font-serif font-semibold text-white mb-3">{project.title}</h2>
+              <p className="text-sm text-gray-300 leading-relaxed text-justify">
+                {project.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.section>
+      </motion.div>
     </section>
   );
 };
