@@ -93,7 +93,7 @@ export default function Experience() {
   };
 
   return (
-    <section className="py-16 px-6 bg-black flex flex-col items-center text-white">
+    <section className="py-16 px-6 bg-gradient-to-r from-gray-800 via-gray-900 to-black flex flex-col items-center text-white">
       <h2 className="text-5xl font-bold relative inline-block mb-16 text-center">
         Experience
         <span className="block h-1 w-24 bg-gradient-to-r from-yellow-500 to-yellow-300 mx-auto mt-2 rounded-full"></span>
