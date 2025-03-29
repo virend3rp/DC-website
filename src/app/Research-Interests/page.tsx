@@ -25,13 +25,13 @@ const ResearchInterestsPage: React.FC = () => {
     }
   ];
 
-  const toggleCard = (title: string) => {
-    if (expandedCard === title) {
-      setExpandedCard(null);
-    } else {
-      setExpandedCard(title);
-    }
-  };
+  // const toggleCard = (title: string) => {
+  //   if (expandedCard === title) {
+  //     setExpandedCard(null);
+  //   } else {
+  //     setExpandedCard(title);
+  //   }
+  // };
 
   return (
     <div className="min-h-screen w-full bg-gray-800">

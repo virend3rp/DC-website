@@ -37,14 +37,14 @@ const awardsData = [
 ];
 
 // Arrays for circuit board connection points
-const connectionPoints = [
-  { x: 10, y: 20 },
-  { x: 70, y: 50 },
-  { x: 30, y: 80 },
-  { x: 90, y: 40 },
-  { x: 20, y: 60 },
-  { x: 80, y: 30 },
-];
+// const connectionPoints = [
+//   { x: 10, y: 20 },
+//   { x: 70, y: 50 },
+//   { x: 30, y: 80 },
+//   { x: 90, y: 40 },
+//   { x: 20, y: 60 },
+//   { x: 80, y: 30 },
+// ];
 
 export default function Awards() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
