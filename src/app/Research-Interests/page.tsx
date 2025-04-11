@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React from 'react';
 
 interface ResearchInterest {
   title: string;
@@ -8,7 +8,7 @@ interface ResearchInterest {
 }
 
 const ResearchInterestsPage: React.FC = () => {
-  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  // const [expandedCard, setExpandedCard] = useState<string | null>(null);
   
   const researchInterests: ResearchInterest[] = [
     {
