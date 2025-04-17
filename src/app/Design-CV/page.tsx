@@ -26,7 +26,7 @@ const projects = [
 
 const DesignCV: React.FC = () => {
   return (
-    <section className="bg-blue-900 min-h-screen py-16">
+    <section className="bg-gradient-to-r from-gray-800 via-gray-900 to-black min-h-screen py-16">
       <motion.div
         className="container mx-auto px-6 py-12 space-y-16"
         initial={{ opacity: 0 }}
@@ -34,13 +34,13 @@ const DesignCV: React.FC = () => {
         transition={{ duration: 1 }}
       >
         {/* Portfolio Title */}
-          <motion.h1
-            className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-center mb-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, type: 'spring', stiffness: 100 }}
-          >
-            DESIGN PORTFOLIO
+        <motion.h1
+          className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-center mb-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, type: 'spring', stiffness: 100 }}
+        >
+          DESIGN PORTFOLIO
         </motion.h1>
 
         {/* Projects Section */}
@@ -53,7 +53,7 @@ const DesignCV: React.FC = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-black p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="bg-gray-900 p-6 rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -64,7 +64,7 @@ const DesignCV: React.FC = () => {
                   className="w-full h-48 object-cover rounded-lg mb-4"
                 />
                 {/* Overlay Effect on Image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30 rounded-lg"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-40 rounded-lg"></div>
               </div>
               <h2 className="text-xl font-serif font-semibold text-white mb-3">{project.title}</h2>
               <p className="text-sm text-gray-300 leading-relaxed text-justify">

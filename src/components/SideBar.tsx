@@ -18,13 +18,30 @@ const SidebarSymbol: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
   return (
     <div>
-      {/* Sidebar symbol with either gear or close icon */}
+      {/* Sidebar symbol with either hamburger or close icon */}
       <div onClick={toggleSidebar} className={Styles.sidebarSymbol}>
-        <img
-          src={isOpen ? "/icons8-close.svg" : "/gear.png"}
-          alt={isOpen ? "close icon" : "gear icon"}
-          style={{ width: "50px", height: "50px" }}
-        />
+        {/* Hamburger icon for closed sidebar, close icon for open sidebar */}
+        {isOpen ? (
+          <img
+            src="/icons8-close.svg"
+            alt="close icon"
+            style={{ width: "35px", height: "35px" }} // Reduced size for close icon
+          />
+        ) : (
+          <svg
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ width: "35px", height: "35px" }} // Reduced size for hamburger icon
+          >
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+              stroke="grey"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
       </div>
 
       {/* Sidebar content with purple-blue-black gradient */}

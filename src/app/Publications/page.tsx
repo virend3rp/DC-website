@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 // Define the publications data
 const publications = [
@@ -40,7 +41,7 @@ const publications = [
 // Publications component
 const Publications: React.FC = () => {
   return (
-    <section className="bg-black py-10 min-h-screen relative">
+    <section className="bg-[#1e2a47] py-10 min-h-screen relative">
       <motion.div
         className="container mx-auto p-9 space-y-0"
         initial={{ opacity: 0 }}
@@ -48,7 +49,7 @@ const Publications: React.FC = () => {
         transition={{ duration: 1 }}
       >
         <motion.h1
-          className="text-5xl font-extrabold text-blue-600 text-center mb-8 shadow-md"
+          className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-center mb-8 shadow-md"
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, type: "spring", stiffness: 100 }}
@@ -65,11 +66,11 @@ const Publications: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Image 
-                src="/royal-stamp.png" 
-                alt="Nail" 
-                width={40} 
-                height={40} 
+              <Image
+                src="/royal-stamp.png"
+                alt="Royal Stamp"
+                width={40}
+                height={40}
                 className="absolute top-0 left-0 transform -translate-x-3 -translate-y-3"
               />
               <motion.h2
@@ -80,7 +81,7 @@ const Publications: React.FC = () => {
               >
                 {publication.title}
               </motion.h2>
-              <ul className="space-y-4 text-sm text-gray-900">
+              <ul className="space-y-4 text-sm text-black">
                 {publication.items.map((item, itemIndex) => (
                   <motion.li
                     key={itemIndex}
@@ -89,7 +90,7 @@ const Publications: React.FC = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: itemIndex * 0.1 }}
                   >
-                    <span className="font-semibold text-gray-800">{itemIndex + 1}.</span>
+                    <span className="font-semibold text-black">{itemIndex + 1}.</span>
                     <span>{item}</span>
                   </motion.li>
                 ))}
