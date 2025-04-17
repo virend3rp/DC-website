@@ -36,16 +36,6 @@ const awardsData = [
   },
 ];
 
-// Arrays for circuit board connection points
-// const connectionPoints = [
-//   { x: 10, y: 20 },
-//   { x: 70, y: 50 },
-//   { x: 30, y: 80 },
-//   { x: 90, y: 40 },
-//   { x: 20, y: 60 },
-//   { x: 80, y: 30 },
-// ];
-
 export default function Awards() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [glowIndex, setGlowIndex] = useState<number | null>(null);
@@ -58,43 +48,14 @@ export default function Awards() {
     <div
       className="min-h-screen flex flex-col items-center justify-center text-white p-6 relative overflow-hidden"
       style={{
-        backgroundImage: "url('/motherboard.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundColor: "#1f2937", // Dark background similar to experience page
       }}
     >
-      {/* Circuit Board Overlay */}
-      <div className="absolute inset-0 bg-green-900/70 backdrop-blur-sm"></div>
-      
-      {/* Circuit Traces */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <svg width="100%" height="100%" className="absolute inset-0">
-          {/* Horizontal traces */}
-          <line x1="0" y1="25%" x2="100%" y2="25%" stroke="#FFD700" strokeWidth="2" strokeDasharray="15,10" />
-          <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#FFD700" strokeWidth="2" strokeDasharray="15,10" />
-          <line x1="0" y1="75%" x2="100%" y2="75%" stroke="#FFD700" strokeWidth="2" strokeDasharray="15,10" />
-          
-          {/* Vertical traces */}
-          <line x1="25%" y1="0" x2="25%" y2="100%" stroke="#FFD700" strokeWidth="2" strokeDasharray="15,10" />
-          <line x1="75%" y1="0" x2="75%" y2="100%" stroke="#FFD700" strokeWidth="2" strokeDasharray="15,10" />
-          
-          {/* Circuit nodes */}
-          <circle cx="25%" cy="25%" r="8" fill="#00FF00" />
-          <circle cx="75%" cy="25%" r="8" fill="#00FF00" />
-          <circle cx="25%" cy="75%" r="8" fill="#00FF00" />
-          <circle cx="75%" cy="75%" r="8" fill="#00FF00" />
-        </svg>
-      </div>
-
       {/* Main Heading */}
       <div className="relative z-10 mb-12 text-center">
         <h1 className="text-5xl font-extrabold text-yellow-400 drop-shadow-xl">
           AWARDS
         </h1>
-        <div className="mt-3 px-4 py-2 bg-green-800 inline-block rounded-lg border-2 border-yellow-500">
-          <span className="animate-pulse inline-block w-3 h-3 bg-green-400 rounded-full mr-2"></span>
-          <span className="text-green-300">SYSTEM ONLINE</span>
-        </div>
       </div>
 
       {/* Award Cards Container */}
@@ -180,17 +141,6 @@ export default function Awards() {
             </div>
           </motion.div>
         ))}
-      </div>
-      
-      {/* System Status */}
-      <div className="mt-12 relative z-10 bg-green-900 p-4 rounded-lg border-2 border-yellow-500">
-        <div className="flex items-center justify-between">
-          <span className="text-green-300">
-            <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-            SYSTEM ACTIVE
-          </span>
-          <span className="text-yellow-400 ml-6 font-mono">AWARDS: {awardsData.length}</span>
-        </div>
       </div>
     </div>
   );

@@ -27,16 +27,20 @@ const SidebarSymbol: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
         />
       </div>
 
-      {/* Sidebar content */}
-      <div className={`${Styles.sidebar} ${isOpen ? Styles.open : ""}`}>
+      {/* Sidebar content with purple-blue-black gradient */}
+      <div
+        className={`${Styles.sidebar} ${isOpen ? Styles.open : ""}`}
+        style={{
+          background: "linear-gradient(to bottom right, #6a1b9a, #3f51b5, #000000)", // Purple to blue to black gradient
+        }}
+      >
         <div className={Styles.buttonContainer}>
           <SideButton onClick={() => router.push("/about")}>About</SideButton>
           <SideButton onClick={() => router.push("/BIRD-LABS")}>B.I.R.D</SideButton>
-          <SideButton onClick={() => router.push("/Research-Interests")}>Research Interests</SideButton>  {/* ✅ FIXED ROUTE */}
+          <SideButton onClick={() => router.push("/Research-Interests")}>Research Interests</SideButton>
           <SideButton onClick={() => router.push("/Experience")}>Experience</SideButton>
           <SideButton onClick={() => router.push("/Education")}>Education</SideButton>
           <SideButton onClick={() => router.push("/Awards")}>Awards</SideButton>
-          <SideButton onClick={() => router.push("/Skills")}>Skills</SideButton>
           <SideButton onClick={() => router.push("/Publications")}>Publications</SideButton>
           <SideButton onClick={() => router.push("/Design-CV")}>Design CV</SideButton>
           <SideButton onClick={() => router.push("/Contact")}>Contact</SideButton>

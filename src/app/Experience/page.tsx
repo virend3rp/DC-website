@@ -111,9 +111,9 @@ export default function Experience() {
               transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
               className={`relative shadow-lg rounded-xl p-6 w-full md:w-1/2 transition duration-300
                 ${expandedId === index ? "shadow-2xl" : "hover:shadow-2xl"}
-                ${expandedId === index ? "bg-gradient-to-r from-yellow-500 to-yellow-300" : "bg-white hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-300"}
-                text-black
-                ${index % 2 === 0 ? "ml-auto" : "mr-auto"}`}
+                bg-white text-black
+                ${index % 2 === 0 ? "ml-auto" : "mr-auto"}
+                hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-300`}
             >
               <div className="flex justify-between items-start cursor-pointer" onClick={() => toggleExpand(index)}>
                 <div className="flex-1">
@@ -143,15 +143,6 @@ export default function Experience() {
                   </div>
                 </div>
               </motion.div>
-
-              {/* Indian Road Milestone Design */}
-              <div className={`absolute top-6 flex items-center ${index % 2 === 0 ? "left-full ml-6" : "right-full mr-6"}`}>
-                <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: index * 0.2 + 0.5, duration: 0.5 }} className="relative">
-                  <div className="w-12 h-16 bg-white rounded-t-full border-2 border-black flex items-center justify-center shadow-md relative">
-                    <div className="w-full h-6 bg-yellow-500 rounded-t-full absolute top-0"></div>
-                  </div>
-                </motion.div>
-              </div>
             </motion.div>
           ))}
         </div>
